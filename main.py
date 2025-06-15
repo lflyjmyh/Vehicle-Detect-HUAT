@@ -25,7 +25,7 @@ class MyWindow(QWidget):  # 定义 MyWindow 类，继承自 QWidget，用于创�
         self.raw_video_timer.timeout.connect(self.update_raw_video_frame)  # 绑定定时器超时信号
 
     def init_ui(self):  # 初始化用户界面的方法
-        self.ui = uic.loadUi("./ui/main.ui")  # 使用 PyQt5 的 uic 模块加载 UI 文件
+        self.ui = uic.loadUi("./main.ui")  # 使用 PyQt5 的 uic 模块加载 UI 文件
 
         # 菜单项
         self.actiondefault = self.ui.actiondefault  # 获取默认主题菜单项
