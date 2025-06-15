@@ -1,0 +1,4 @@
+train: E:/AiProject/dataset/train
+val: E:\AiProject\dataset\valid
+nc: 6
+names: ['car', 'threewheel', 'bus', 'truck', 'motorbike', 'van']

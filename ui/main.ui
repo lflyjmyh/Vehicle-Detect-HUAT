@@ -1,0 +1,616 @@
+<?xml version='1.0' encoding='UTF-8'?> <!-- 声明XML版本为1.0，编码为UTF-8 -->
+<ui version="4.0"> <!-- 定义UI文件的版本为4.0 -->
+ <class>MainWindow</class> <!-- 定义主窗口的类名为MainWindow -->
+ <widget class="QMainWindow" name="MainWindow"> <!-- 创建一个QMainWindow窗口，命名为MainWindow -->
+  <property name="geometry"> <!-- 设置窗口的几何属性 -->
+   <rect> <!-- 定义矩形区域 -->
+    <x>0</x> <!-- 窗口左上角x坐标为0 -->
+    <y>0</y> <!-- 窗口左上角y坐标为0 -->
+    <width>1200</width> <!-- 窗口宽度为1200像素 -->
+    <height>800</height> <!-- 窗口高度为800像素 -->
+   </rect> <!-- 矩形区域定义结束 -->
+  </property> <!-- 几何属性设置结束 -->
+  <property name="windowTitle"> <!-- 设置窗口标题 -->
+   <string>基于YOLOv8的车辆检测--github.com/lflyjmyh/</string> <!-- 窗口标题为“基于YOLOv8的车辆检测” -->
+  </property> <!-- 窗口标题设置结束 -->
+  <property name="windowIcon"> <!-- 设置窗口图标 -->
+   <iconset> <!-- 定义图标集 -->
+    <normaloff>../ui/tesla.png</normaloff>../ui/tesla.png</iconset> <!-- 图标路径为../image/tesla.png -->
+  </property> <!-- 窗口图标设置结束 -->
+  <property name="styleSheet"> <!-- 设置窗口的样式表 -->
+   <string notr="true">QMainWindow{background-color: #667799;}</string> <!-- 设置主窗口背景颜色为#667799 -->
+  </property> <!-- 样式表设置结束 -->
+  <widget class="QWidget" name="centralwidget"> <!-- 创建中心部件，命名为centralwidget -->
+   <property name="styleSheet"> <!-- 设置中心部件的样式表 -->
+    <string notr="true">QWidget{background-color:#667799;}</string> <!-- 设置中心部件背景颜色为#667799 -->
+   </property> <!-- 样式表设置结束 -->
+   <widget class="QLabel" name="label_11"> <!-- 创建一个QLabel，命名为label_11 -->
+    <property name="geometry"> <!-- 设置标签的几何属性 -->
+     <rect> <!-- 定义矩形区域 -->
+      <x>300</x> <!-- 标签左上角x坐标为300 -->
+      <y>30</y> <!-- 标签左上角y坐标为30 -->
+      <width>600</width> <!-- 标签宽度为600像素 -->
+      <height>60</height> <!-- 标签高度为60像素 -->
+     </rect> <!-- 矩形区域定义结束 -->
+    </property> <!-- 几何属性设置结束 -->
+    <property name="styleSheet"> <!-- 设置标签的样式表 -->
+     <string notr="true">QLabel{color: #FFFFFF; font: 18pt "黑体"; font-weight: bold;background-color:auto;}</string> <!-- 设置标签文字颜色为白色，字体为18pt黑体，加粗 -->
+    </property> <!-- 样式表设置结束 -->
+    <property name="text"> <!-- 设置标签的文本内容 -->
+     <string>基于YOLOv8的车辆检测-lflyjmyh</string> <!-- 标签文本为“基于YOLOv8的车辆检测” -->
+    </property> <!-- 文本内容设置结束 -->
+   </widget> <!-- QLabel定义结束 -->
+   <widget class="QTabWidget" name="tabWidget"> <!-- 创建一个QTabWidget，命名为tabWidget -->
+    <property name="geometry"> <!-- 设置选项卡控件的几何属性 -->
+     <rect> <!-- 定义矩形区域 -->
+      <x>260</x> <!-- 选项卡左上角x坐标为260 -->
+      <y>100</y> <!-- 选项卡左上角y坐标为100 -->
+      <width>900</width> <!-- 选项卡宽度为900像素 -->
+      <height>650</height> <!-- 选项卡高度为650像素 -->
+     </rect> <!-- 矩形区域定义结束 -->
+    </property> <!-- 几何属性设置结束 -->
+    <property name="styleSheet"> <!-- 设置选项卡的样式表 -->
+     <string notr="true">QTabWidget{border: 0; background-color: auto;}
+QTabWidget::pane {border: 0;}
+QTabWidget::tab-bar {height: 0px;}</string> <!-- 设置选项卡无边框，背景颜色为#667799，选项卡面板无边框，选项卡栏高度为0 -->
+    </property> <!-- 样式表设置结束 -->
+    <property name="currentIndex"> <!-- 设置当前选项卡索引 -->
+     <number>0</number> <!-- 默认显示第一个选项卡 -->
+    </property> <!-- 当前选项卡索引设置结束 -->
+    <widget class="QWidget" name="tab"> <!-- 创建第一个选项卡，命名为tab -->
+     <property name="styleSheet"> <!-- 设置选项卡的样式表 -->
+      <string notr="true">QWidget{background-color:auto;}</string> <!-- 设置选项卡背景颜色为#667799 -->
+     </property> <!-- 样式表设置结束 -->
+     <widget class="QGraphicsView" name="raw_image"> <!-- 创建一个QGraphicsView，命名为raw_image -->
+      <property name="geometry"> <!-- 设置图像显示区域的几何属性 -->
+       <rect> <!-- 定义矩形区域 -->
+        <x>30</x> <!-- 图像显示区域左上角x坐标为30 -->
+        <y>100</y> <!-- 图像显示区域左上角y坐标为100 -->
+        <width>400</width> <!-- 图像显示区域宽度为400像素 -->
+        <height>400</height> <!-- 图像显示区域高度为400像素 -->
+       </rect> <!-- 矩形区域定义结束 -->
+      </property> <!-- 几何属性设置结束 -->
+      <property name="styleSheet"> <!-- 设置图像显示区域的样式表 -->
+       <string notr="true">QGraphicsView{background-color: white; border: 0; border-radius:10%;}</string> <!-- 设置背景颜色为白色，无边框，圆角为10% -->
+      </property> <!-- 样式表设置结束 -->
+     </widget> <!-- QGraphicsView定义结束 -->
+     <widget class="QGraphicsView" name="res_image"> <!-- 创建另一个QGraphicsView，命名为res_image -->
+      <property name="geometry"> <!-- 设置结果图像显示区域的几何属性 -->
+       <rect> <!-- 定义矩形区域 -->
+        <x>460</x> <!-- 结果图像显示区域左上角x坐标为460 -->
+        <y>100</y> <!-- 结果图像显示区域左上角y坐标为100 -->
+        <width>400</width> <!-- 结果图像显示区域宽度为400像素 -->
+        <height>400</height> <!-- 结果图像显示区域高度为400像素 -->
+       </rect> <!-- 矩形区域定义结束 -->
+      </property> <!-- 几何属性设置结束 -->
+      <property name="styleSheet"> <!-- 设置结果图像显示区域的样式表 -->
+       <string notr="true">QGraphicsView{background-color: white; border: 0; border-radius:10%;}</string> <!-- 设置背景颜色为白色，无边框，圆角为10% -->
+      </property> <!-- 样式表设置结束 -->
+     </widget> <!-- QGraphicsView定义结束 -->
+     <widget class="QPushButton" name="select_btn"> <!-- 创建一个QPushButton，命名为select_btn -->
+      <property name="geometry"> <!-- 设置按钮的几何属性 -->
+       <rect> <!-- 定义矩形区域 -->
+        <x>30</x> <!-- 按钮左上角x坐标为30 -->
+        <y>520</y> <!-- 按钮左上角y坐标为520 -->
+        <width>400</width> <!-- 按钮宽度为400像素 -->
+        <height>50</height> <!-- 按钮高度为50像素 -->
+       </rect> <!-- 矩形区域定义结束 -->
+      </property> <!-- 几何属性设置结束 -->
+      <property name="styleSheet"> <!-- 设置按钮的样式表 -->
+       <string notr="true">QPushButton{font: 14pt "Arial"; font-weight: bold; background-color: #66aaee; border-radius: 10%; color: white}</string> <!-- 设置字体为14pt Arial，加粗，背景颜色为#66aaee，圆角为10%，文字颜色为白色 -->
+      </property> <!-- 样式表设置结束 -->
+      <property name="text"> <!-- 设置按钮的文本 -->
+       <string>选择图像</string> <!-- 按钮文本为“选择图像” -->
+      </property> <!-- 文本设置结束 -->
+     </widget> <!-- QPushButton定义结束 -->
+     <widget class="QPushButton" name="show_btn"> <!-- 创建另一个QPushButton，命名为show_btn -->
+      <property name="geometry"> <!-- 设置按钮的几何属性 -->
+       <rect> <!-- 定义矩形区域 -->
+        <x>460</x> <!-- 按钮左上角x坐标为460 -->
+        <y>520</y> <!-- 按钮左上角y坐标为520 -->
+        <width>400</width> <!-- 按钮宽度为400像素 -->
+        <height>50</height> <!-- 按钮高度为50像素 -->
+       </rect> <!-- 矩形区域定义结束 -->
+      </property> <!-- 几何属性设置结束 -->
+      <property name="styleSheet"> <!-- 设置按钮的样式表 -->
+       <string notr="true">QPushButton{font: 14pt "Arial"; font-weight: bold; background-color: #66aaee; border-radius: 10%; color: white}</string> <!-- 设置字体为14pt Arial，加粗，背景颜色为#66aaee，圆角为10%，文字颜色为白色 -->
+      </property> <!-- 样式表设置结束 -->
+      <property name="text"> <!-- 设置按钮的文本 -->
+       <string>显示结果</string> <!-- 按钮文本为“显示结果” -->
+      </property> <!-- 文本设置结束 -->
+     </widget> <!-- QPushButton定义结束 -->
+     <widget class="QLabel" name="label"> <!-- 创建一个QLabel，命名为label -->
+      <property name="geometry"> <!-- 设置标签的几何属性 -->
+       <rect> <!-- 定义矩形区域 -->
+        <x>30</x> <!-- 标签左上角x坐标为30 -->
+        <y>30</y> <!-- 标签左上角y坐标为30 -->
+        <width>80</width> <!-- 标签宽度为80像素 -->
+        <height>50</height> <!-- 标签高度为50像素 -->
+       </rect> <!-- 矩形区域定义结束 -->
+      </property> <!-- 几何属性设置结束 -->
+      <property name="styleSheet"> <!-- 设置标签的样式表 -->
+       <string notr="true">QLabel{font: 16pt "Arial"; font-weight: bold; color: #ffffff;}</string> <!-- 设置字体为16pt Arial，加粗，文字颜色为白色 -->
+      </property> <!-- 样式表设置结束 -->
+      <property name="text"> <!-- 设置标签的文本 -->
+       <string>模型</string> <!-- 标签文本为“模型” -->
+      </property> <!-- 文本设置结束 -->
+     </widget> <!-- QLabel定义结束 -->
+     <widget class="QComboBox" name="combo1"> <!-- 创建一个QComboBox，命名为combo1 -->
+      <property name="geometry"> <!-- 设置下拉框的几何属性 -->
+       <rect> <!-- 定义矩形区域 -->
+        <x>110</x> <!-- 下拉框左上角x坐标为110 -->
+        <y>30</y> <!-- 下拉框左上角y坐标为30 -->
+        <width>150</width> <!-- 下拉框宽度为150像素 -->
+        <height>50</height> <!-- 下拉框高度为50像素 -->
+       </rect> <!-- 矩形区域定义结束 -->
+      </property> <!-- 几何属性设置结束 -->
+      <property name="styleSheet"> <!-- 设置下拉框的样式表 -->
+       <string notr="true">QComboBox{background-color: #f8f8f8; border: 2px solid #ccc; border-radius: 5px; padding: 5px; font-size: 14px; color: #333;}
+QComboBox::down-arrow{image: url(./ui/down.png); width: 10px; height: 10px;}
+QComboBox::drop-down{subcontrol-origin: padding; subcontrol-position: top right; width: 25px; border-left: 1px solid #999; background-color: #e0e0e0;}
+QComboBox QAbstractItemView{background-color: #fff; border: 1px solid #ccc; selection-background-color: #0078d7; selection-color: #fff;}
+QComboBox:hover{border-color: #0078d7;}
+QComboBox:disabled{background-color: #f0f0f0; border: 1px solid #ccc; color: #888;}</string> <!-- 设置下拉框背景颜色为#f8f8f8，边框为2px灰色，圆角为5px，字体大小为14px，文字颜色为#333；下拉箭头图片为down.png；下拉菜单样式；悬停和禁用状态样式 -->
+      </property> <!-- 样式表设置结束 -->
+      <item> <!-- 定义下拉框选项 -->
+       <property name="text"> <!-- 设置选项文本 -->
+        <string>物体检测</string> <!-- 选项文本为“物体检测” -->
+       </property> <!-- 选项文本设置结束 -->
+      </item> <!-- 选项定义结束 -->
+      <item> <!-- 定义另一个下拉框选项 -->
+       <property name="text"> <!-- 设置选项文本 -->
+        <string>实例分割</string> <!-- 选项文本为“实例分割” -->
+       </property> <!-- 选项文本设置结束 -->
+      </item> <!-- 选项定义结束 -->
+     </widget> <!-- QComboBox定义结束 -->
+     <widget class="QLabel" name="label_23">
+      <property name="geometry">
+       <rect>
+        <x>25</x>
+        <y>-15</y>
+        <width>370</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	font: 10pt &quot;黑体&quot;;
+	font-weight: bold;
+	color: #ffffff;
+    background-color:auto;
+}</string>
+      </property>
+      <property name="text">
+       <string>图像物体检测与实例分割</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2"> <!-- 创建一个QLabel，命名为label_2 -->
+      <property name="geometry"> <!-- 设置标签的几何属性 -->
+       <rect> <!-- 定义矩形区域 -->
+        <x>270</x> <!-- 标签左上角x坐标为270 -->
+        <y>30</y> <!-- 标签左上角y坐标为30 -->
+        <width>80</width> <!-- 标签宽度为80像素 -->
+        <height>50</height> <!-- 标签高度为50像素 -->
+       </rect> <!-- 矩形区域定义结束 -->
+      </property> <!-- 几何属性设置结束 -->
+      <property name="styleSheet"> <!-- 设置标签的样式表 -->
+       <string notr="true">QLabel{font: 16pt "Arial"; font-weight: bold; color: #ffffff;}</string> <!-- 设置字体为16pt Arial，加粗，文字颜色为白色 -->
+      </property> <!-- 样式表设置结束 -->
+      <property name="text"> <!-- 设置标签的文本 -->
+       <string>置信度</string> <!-- 标签文本为“置信度” -->
+      </property> <!-- 文本设置结束 -->
+     </widget> <!-- QLabel定义结束 -->
+     <widget class="QDoubleSpinBox" name="conf1"> <!-- 创建一个QDoubleSpinBox，命名为conf1 -->
+      <property name="geometry"> <!-- 设置数值调整框的几何属性 -->
+       <rect> <!-- 定义矩形区域 -->
+        <x>350</x> <!-- 数值调整框左上角x坐标为350 -->
+        <y>30</y> <!-- 数值调整框左上角y坐标为30 -->
+        <width>150</width> <!-- 数值调整框宽度为150像素 -->
+        <height>50</height> <!-- 数值调整框高度为50像素 -->
+       </rect> <!-- 矩形区域定义结束 -->
+      </property> <!-- 几何属性设置结束 -->
+      <property name="styleSheet"> <!-- 设置数值调整框的样式表 -->
+       <string notr="true">QDoubleSpinBox{background-color: #f8f8f8; border: 2px solid #ccc; border-radius: 5px; padding: 5px; font-size: 12pt; color: #333;}
+QDoubleSpinBox::up-button{subcontrol-origin: border; subcontrol-position: top right; width: 30px; border-left: 1px solid #ccc; border-bottom: 1px solid #ccc; border-top-right-radius: 5px; background-color: #ddd;}
+QDoubleSpinBox::down-button{subcontrol-origin: border; subcontrol-position: bottom right; width: 30px; border-left: 1px solid #ccc; border-bottom: 1px solid #ccc; border-top-right-radius: 5px; background-color: #ddd;}
+QDoubleSpinBox::up-button:hover, QDoubleSpinBox::down-button:hover{background-color: #ccc;}
+QDoubleSpinBox::up-arrow{width: 10px; height: 10px; image: url(./ui/up.png);}
+QDoubleSpinBox::down-arrow{width: 10px; height: 10px; image: url(./ui/down.png);}</string> <!-- 设置背景颜色为#f8f8f8，边框为2px灰色，圆角为5px，字体为12pt，文字颜色为#333；上下按钮样式；悬浮样式；上下箭头图标 -->
+      </property> <!-- 样式表设置结束 -->
+     </widget> <!-- QDoubleSpinBox定义结束 -->
+     <widget class="QLabel" name="label_3"> <!-- 创建一个QLabel，命名为label_3 -->
+      <property name="geometry"> <!-- 设置标签的几何属性 -->
+       <rect> <!-- 定义矩形区域 -->
+        <x>510</x> <!-- 标签左上角x坐标为510 -->
+        <y>30</y> <!-- 标签左上角y坐标为30 -->
+        <width>80</width> <!-- 标签宽度为80像素 -->
+        <height>50</height> <!-- 标签高度为50像素 -->
+       </rect> <!-- 矩形区域定义结束 -->
+      </property> <!-- 几何属性设置结束 -->
+      <property name="styleSheet"> <!-- 设置标签的样式表 -->
+       <string notr="true">QLabel{font: 16pt "Arial"; font-weight: bold; color: #ffffff;}</string> <!-- 设置字体为16pt Arial，加粗，文字颜色为白色 -->
+      </property> <!-- 样式表设置结束 -->
+      <property name="text"> <!-- 设置标签的文本 -->
+       <string>IOU</string> <!-- 标签文本为“IOU” -->
+      </property> <!-- 文本设置结束 -->
+     </widget> <!-- QLabel定义结束 -->
+     <widget class="QDoubleSpinBox" name="IOU1"> <!-- 创建一个QDoubleSpinBox，命名为IOU1 -->
+      <property name="geometry"> <!-- 设置数值调整框的几何属性 -->
+       <rect> <!-- 定义矩形区域 -->
+        <x>590</x> <!-- 数值调整框左上角x坐标为590 -->
+        <y>30</y> <!-- 数值调整框左上角y坐标为30 -->
+        <width>150</width> <!-- 数值调整框宽度为150像素 -->
+        <height>50</height> <!-- 数值调整框高度为50像素 -->
+       </rect> <!-- 矩形区域定义结束 -->
+      </property> <!-- 几何属性设置结束 -->
+      <property name="styleSheet"> <!-- 设置数值调整框的样式表 -->
+       <string notr="true">QDoubleSpinBox{background-color: #f8f8f8; border: 2px solid #ccc; border-radius: 5px; padding: 5px; font-size: 12pt; color: #333;}
+QDoubleSpinBox::up-button{subcontrol-origin: border; subcontrol-position: top right; width: 30px; border-left: 1px solid #ccc; border-bottom: 1px solid #ccc; border-top-right-radius: 5px; background-color: #ddd;}
+QDoubleSpinBox::down-button{subcontrol-origin: border; subcontrol-position: bottom right; width: 30px; border-left: 1px solid #ccc; border-bottom: 1px solid #ccc; border-top-right-radius: 5px; background-color: #ddd;}
+QDoubleSpinBox::up-button:hover, QDoubleSpinBox::down-button:hover{background-color: #ccc;}
+QDoubleSpinBox::up-arrow{width: 10px; height: 10px; image: url(./ui/up.png);}
+QDoubleSpinBox::down-arrow{width: 10px; height: 10px; image: url(./ui/down.png);}</string> <!-- 设置背景颜色为#f8f8f8，边框为2px灰色，圆角为5px，字体为12pt，文字颜色为#333；上下按钮样式；悬浮样式；上下箭头图标 -->
+      </property> <!-- 样式表设置结束 -->
+     </widget> <!-- QDoubleSpinBox定义结束 -->
+     <widget class="QLabel" name="label_4"> <!-- 创建一个QLabel，命名为label_4 -->
+      <property name="geometry"> <!-- 设置标签的几何属性 -->
+       <rect> <!-- 定义矩形区域 -->
+        <x>750</x> <!-- 标签左上角x坐标为750 -->
+        <y>30</y> <!-- 标签左上角y坐标为30 -->
+        <width>80</width> <!-- 标签宽度为80像素 -->
+        <height>50</height> <!-- 标签高度为50像素 -->
+       </rect> <!-- 矩形区域定义结束 -->
+      </property> <!-- 几何属性设置结束 -->
+      <property name="styleSheet"> <!-- 设置标签的样式表 -->
+       <string notr="true">QLabel{font: 16pt "Arial"; font-weight: bold; color: #ffffff;}</string> <!-- 设置字体为16pt Arial，加粗，文字颜色为白色 -->
+      </property> <!-- 样式表设置结束 -->
+      <property name="text"> <!-- 设置标签的文本 -->
+       <string>类别</string> <!-- 标签文本为“类别” -->
+      </property> <!-- 文本设置结束 -->
+     </widget> <!-- QLabel定义结束 -->
+     <widget class="QLineEdit" name="class1"> <!-- 创建一个QLineEdit，命名为class1 -->
+      <property name="geometry"> <!-- 设置文本输入框的几何属性 -->
+       <rect> <!-- 定义矩形区域 -->
+        <x>830</x> <!-- 文本输入框左上角x坐标为830 -->
+        <y>30</y> <!-- 文本输入框左上角y坐标为30 -->
+        <width>60</width> <!-- 文本输入框宽度为60像素 -->
+        <height>50</height> <!-- 文本输入框高度为50像素 -->
+       </rect> <!-- 矩形区域定义结束 -->
+      </property> <!-- 几何属性设置结束 -->
+      <property name="styleSheet"> <!-- 设置文本输入框的样式表 -->
+       <string notr="true">QLineEdit{background-color: #f8f8f8; font-size: 12pt; border: 0; padding: 10px; border-radius: 10%;}</string> <!-- 设置背景颜色为#f8f8f8，字体大小为12pt，无边框，内边距为10px，圆角为10% -->
+      </property> <!-- 样式表设置结束 -->
+     </widget> <!-- QLineEdit定义结束 -->
+    </widget> <!-- 第一个选项卡定义结束 -->
+    <widget class="QWidget" name="tab_2"> <!-- 创建第二个选项卡，命名为tab_2 -->
+     <property name="styleSheet"> <!-- 设置选项卡的样式表 -->
+      <string notr="true">QWidget{background-color: #667799;}</string> <!-- 设置选项卡背景颜色为#667799 -->
+     </property> <!-- 样式表设置结束 -->
+     <widget class="QGraphicsView" name="raw_video"> <!-- 创建一个QGraphicsView，命名为raw_video -->
+      <property name="geometry"> <!-- 设置视频显示区域的几何属性 -->
+       <rect> <!-- 定义矩形区域 -->
+        <x>30</x> <!-- 视频显示区域左上角x坐标为30 -->
+        <y>100</y> <!-- 视频显示区域左上角y坐标为100 -->
+        <width>400</width> <!-- 视频显示区域宽度为400像素 -->
+        <height>400</height> <!-- 视频显示区域高度为400像素 -->
+       </rect> <!-- 矩形区域定义结束 -->
+      </property> <!-- 几何属性设置结束 -->
+      <property name="styleSheet"> <!-- 设置视频显示区域的样式表 -->
+       <string notr="true">QGraphicsView{background-color: white; border: 0; border-radius:10%;}</string> <!-- 设置背景颜色为白色，无边框，圆角为10% -->
+      </property> <!-- 样式表设置结束 -->
+     </widget> <!-- QGraphicsView定义结束 -->
+     <widget class="QGraphicsView" name="res_video"> <!-- 创建另一个QGraphicsView，命名为res_video -->
+      <property name="geometry"> <!-- 设置结果视频显示区域的几何属性 -->
+       <rect> <!-- 定义矩形区域 -->
+        <x>460</x> <!-- 结果视频显示区域左上角x坐标为460 -->
+        <y>100</y> <!-- 结果视频显示区域左上角y坐标为100 -->
+        <width>400</width> <!-- 结果视频显示区域宽度为400像素 -->
+        <height>400</height> <!-- 结果视频显示区域高度为400像素 -->
+       </rect> <!-- 矩形区域定义结束 -->
+      </property> <!-- 几何属性设置结束 -->
+      <property name="styleSheet"> <!-- 设置结果视频显示区域的样式表 -->
+       <string notr="true">QGraphicsView{background-color: white; border: 0; border-radius:10%;}</string> <!-- 设置背景颜色为白色，无边框，圆角为10% -->
+      </property> <!-- 样式表设置结束 -->
+     </widget> <!-- QGraphicsView定义结束 -->
+     <widget class="QPushButton" name="choose_video"> <!-- 创建一个QPushButton，命名为choose_video -->
+      <property name="geometry"> <!-- 设置按钮的几何属性 -->
+       <rect> <!-- 定义矩形区域 -->
+        <x>30</x> <!-- 按钮左上角x坐标为30 -->
+        <y>520</y> <!-- 按钮左上角y坐标为520 -->
+        <width>400</width> <!-- 按钮宽度为400像素 -->
+        <height>50</height> <!-- 按钮高度为50像素 -->
+       </rect> <!-- 矩形区域定义结束 -->
+      </property> <!-- 几何属性设置结束 -->
+      <property name="styleSheet"> <!-- 设置按钮的样式表 -->
+       <string notr="true">QPushButton{font: 14pt "Arial"; font-weight: bold; background-color: #66aaee; border-radius: 10%; color: white}</string> <!-- 设置字体为14pt Arial，加粗，背景颜色为#66aaee，圆角为10%，文字颜色为白色 -->
+      </property> <!-- 样式表设置结束 -->
+      <property name="text"> <!-- 设置按钮的文本 -->
+       <string>选择视频</string> <!-- 按钮文本为“选择视频” -->
+      </property> <!-- 文本设置结束 -->
+     </widget> <!-- QPushButton定义结束 -->
+     <widget class="QPushButton" name="show_video"> <!-- 创建另一个QPushButton，命名为show_video -->
+      <property name="geometry"> <!-- 设置按钮的几何属性 -->
+       <rect> <!-- 定义矩形区域 -->
+        <x>460</x> <!-- 按钮左上角x坐标为460 -->
+        <y>520</y> <!-- 按钮左上角y坐标为520 -->
+        <width>400</width> <!-- 按钮宽度为400像素 -->
+        <height>50</height> <!-- 按钮高度为50像素 -->
+       </rect> <!-- 矩形区域定义结束 -->
+      </property> <!-- 几何属性设置结束 -->
+      <property name="styleSheet"> <!-- 设置按钮的样式表 -->
+       <string notr="true">QPushButton{font: 14pt "Arial"; font-weight: bold; background-color: #66aaee; border-radius: 10%; color: white}</string> <!-- 设置字体为14pt Arial，加粗，背景颜色为#66aaee，圆角为10%，文字颜色为白色 -->
+      </property> <!-- 样式表设置结束 -->
+      <property name="text"> <!-- 设置按钮的文本 -->
+       <string>显示结果</string> <!-- 按钮文本为“显示结果” -->
+      </property> <!-- 文本设置结束 -->
+     </widget> <!-- QPushButton定义结束 -->
+     <widget class="QLabel" name="label_5"> <!-- 创建一个QLabel，命名为label_5 -->
+      <property name="geometry"> <!-- 设置标签的几何属性 -->
+       <rect> <!-- 定义矩形区域 -->
+        <x>30</x> <!-- 标签左上角x坐标为30 -->
+        <y>30</y> <!-- 标签左上角y坐标为30 -->
+        <width>80</width> <!-- 标签宽度为80像素 -->
+        <height>50</height> <!-- 标签高度为50像素 -->
+       </rect> <!-- 矩形区域定义结束 -->
+      </property> <!-- 几何属性设置结束 -->
+      <property name="styleSheet"> <!-- 设置标签的样式表 -->
+       <string notr="true">QLabel{font: 16pt "Arial"; font-weight: bold; color: #ffffff;}</string> <!-- 设置字体为16pt Arial，加粗，文字颜色为白色 -->
+      </property> <!-- 样式表设置结束 -->
+      <property name="text"> <!-- 设置标签的文本 -->
+       <string>模型</string> <!-- 标签文本为“模型” -->
+      </property> <!-- 文本设置结束 -->
+     </widget> <!-- QLabel定义结束 -->
+     <widget class="QComboBox" name="combo2"> <!-- 创建一个QComboBox，命名为combo2 -->
+      <property name="geometry"> <!-- 设置下拉框的几何属性 -->
+       <rect> <!-- 定义矩形区域 -->
+        <x>110</x> <!-- 下拉框左上角x坐标为110 -->
+        <y>30</y> <!-- 下拉框左上角y坐标为30 -->
+        <width>150</width> <!-- 下拉框宽度为150像素 -->
+        <height>50</height> <!-- 下拉框高度为50像素 -->
+       </rect> <!-- 矩形区域定义结束 -->
+      </property> <!-- 几何属性设置结束 -->
+      <property name="styleSheet"> <!-- 设置下拉框的样式表 -->
+       <string notr="true">QComboBox{background-color: #f8f8f8; border: 2px solid #ccc; border-radius: 5px; padding: 5px; font-size: 14px; color: #333;}
+QComboBox::down-arrow{image: url(./ui/down.png); width: 10px; height: 10px;}
+QComboBox::drop-down{subcontrol-origin: padding; subcontrol-position: top right; width: 25px; border-left: 1px solid #999; background-color: #e0e0e0;}
+QComboBox QAbstractItemView{background-color: #fff; border: 1px solid #ccc; selection-background-color: #0078d7; selection-color: #fff;}
+QComboBox:hover{border-color: #0078d7;}
+QComboBox:disabled{background-color: #f0f0f0; border: 1px solid #ccc; color: #888;}</string> <!-- 设置下拉框背景颜色为#f8f8f8，边框为2px灰色，圆角为5px，字体大小为14px，文字颜色为#333；下拉箭头图片为down.png；下拉菜单样式；悬停和禁用状态样式 -->
+      </property> <!-- 样式表设置结束 -->
+      <item> <!-- 定义下拉框选项 -->
+       <property name="text"> <!-- 设置选项文本 -->
+        <string>物体检测</string> <!-- 选项文本为“物体检测” -->
+       </property> <!-- 选项文本设置结束 -->
+      </item> <!-- 选项定义结束 -->
+      <item> <!-- 定义另一个下拉框选项 -->
+       <property name="text"> <!-- 设置选项文本 -->
+        <string>实例分割</string> <!-- 选项文本为“实例分割” -->
+       </property> <!-- 选项文本设置结束 -->
+      </item> <!-- 选项定义结束 -->
+     </widget> <!-- QComboBox定义结束 -->
+     <widget class="QLabel" name="label_24">
+      <property name="geometry">
+       <rect>
+        <x>25</x>
+        <y>-15</y>
+        <width>370</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	font: 10pt &quot;黑体&quot;;
+	font-weight: bold;
+	color: #ffffff;
+    background-color:auto;
+}</string>
+      </property>
+      <property name="text">
+       <string>视频物体检测与实例分割</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_6"> <!-- 创建一个QLabel，命名为label_6 -->
+      <property name="geometry"> <!-- 设置标签的几何属性 -->
+       <rect> <!-- 定义矩形区域 -->
+        <x>270</x> <!-- 标签左上角x坐标为270 -->
+        <y>30</y> <!-- 标签左上角y坐标为30 -->
+        <width>80</width> <!-- 标签宽度为80像素 -->
+        <height>50</height> <!-- 标签高度为50像素 -->
+       </rect> <!-- 矩形区域定义结束 -->
+      </property> <!-- 几何属性设置结束 -->
+      <property name="styleSheet"> <!-- 设置标签的样式表 -->
+       <string notr="true">QLabel{font: 16pt "Arial"; font-weight: bold; color: #ffffff;}</string> <!-- 设置字体为16pt Arial，加粗，文字颜色为白色 -->
+      </property> <!-- 样式表设置结束 -->
+      <property name="text"> <!-- 设置标签的文本 -->
+       <string>置信度</string> <!-- 标签文本为“置信度” -->
+      </property> <!-- 文本设置结束 -->
+     </widget> <!-- QLabel定义结束 -->
+     <widget class="QDoubleSpinBox" name="conf2"> <!-- 创建一个QDoubleSpinBox，命名为conf2 -->
+      <property name="geometry"> <!-- 设置数值调整框的几何属性 -->
+       <rect> <!-- 定义矩形区域 -->
+        <x>350</x> <!-- 数值调整框左上角x坐标为350 -->
+        <y>30</y> <!-- 数值调整框左上角y坐标为150 -->
+        <width>150</width> <!-- 数值调整框宽度为50像素 -->
+        <height>50</height> <!-- 数值调整框高度为400像素 -->
+       </rect> <!-- 矩形区域定义结束 -->
+      </property> <!-- 几何属性设置结束 -->
+      <property name="styleSheet"> <!-- 设置数值调整框的样式表 -->
+       <string notr="true">QDoubleSpinBox {background-color: rgb(248, 248, 248); border: 2px solid rgb(204, 204, 204); border-radius: 5px; padding: 5px; font-size: 12pt; color: rgb(51, 51);;}
+QDoubleSpinBox::up-button{subcontrol-origin: border; subcontrol-position: top right; width: 30px; border-left: 1px solid rgb(204, 204, 204); border-bottom: 1px solid rgb(204, 204, 204); border-top-right-radius: 5px; background-color: rgb(221,221,221);}
+QDoubleSpinBox::down-button{subcontrol-origin: border; subcontrol-position: bottom right; width: 30px; border-left: 1px solid rgb(204, 204, 204); border-bottom: 1px solid rgb(204, 204, 204); border-bottom-right-radius: 5px; background-color: rgb(221,221,221);}
+QDoubleSpinBox::up-button:hover, QDoubleSpinBox::down-button:hover{background-color: rgb(204,204,204);;}
+QDoubleSpinBox::up-arrow{width: 10px; height: 10px; image: url(./ui/up.png);}
+QDoubleSpinBox::down-arrow{width: 10px; height: 10px; image: url(./ui/down.png);}</string> <!-- 设置背景颜色为#f8f8f8，边框为2px灰色，圆角为5px，字体为12pt，文字颜色为#333；上下按钮样式；悬浮样式；上下箭头图标 -->
+      </property> <!-- 样式表设置结束 -->
+     </widget> <!-- QDoubleSpinBox定义结束 -->
+     <widget class="QLabel" name="label_7"> <!-- 创建一个QLabel，命名为label_7 -->
+      <property name="geometry"> <!-- 设置标签的几何属性 -->
+       <rect> <!-- 定义矩形区域 -->
+        <x>510</x> <!-- 标签左上角x坐标为510 -->
+        <y>30</y> <!-- 标签左上角y坐标为30 -->
+        <width>80</width> <!-- 标签宽度为80像素 -->
+        <height>50</height> <!-- 标签高度为50像素 -->
+       </rect> <!-- 矩形区域定义结束 -->
+      </property> <!-- 几何属性设置结束 -->
+      <property name="styleSheet"> <!-- 设置标签的样式表 -->
+       <string notr="true">QLabel{font: 16pt "Arial"; font-weight: bold; color: #ffffff;}</string> <!-- 设置字体为16pt Arial，加粗，文字颜色为白色 -->
+      </property> <!-- 样式表设置结束 -->
+      <property name="text"> <!-- 设置标签的文本 -->
+       <string>IOU</string> <!-- 标签文本为“IOU” -->
+      </property> <!-- 文本设置结束 -->
+     </widget> <!-- QLabel定义结束 -->
+     <widget class="QDoubleSpinBox" name="IOU2"> <!-- 创建一个QDoubleSpinBox，命名为IOU2 -->
+      <property name="geometry"> <!-- 设置数值调整框的几何属性 -->
+       <rect> <!-- 定义矩形区域 -->
+        <x>590</x> <!-- 数值调整框左上角x坐标为590 -->
+        <y>30</y> <!-- 数值调整框左上角y坐标为30 -->
+        <width>150</width> <!-- 数值调整框宽度为150像素 -->
+        <height>50</height> <!-- 数值调整框高度为50像素 -->
+       </rect> <!-- 矩形区域定义结束 -->
+      </property> <!-- 几何属性设置结束 -->
+      <property name="styleSheet"> <!-- 设置数值调整框的样式表 -->
+       <string notr="true">QDoubleSpinBox{background-color: #f8f8f8; border: 2px solid #ccc; border-radius: 5px; padding: 5px; font-size: 12pt; color: #333;}
+QDoubleSpinBox::up-button{subcontrol-origin: border; subcontrol-position: top right; width: 30px; border-left: 1px solid #ccc; border-bottom: 1px solid #ccc; border-top-right-radius: 5px; background-color: #ddd;}
+QDoubleSpinBox::down-button{subcontrol-origin: border; subcontrol-position: bottom right; width: 30px; border-left: 1px solid #ccc; border-bottom: 1px solid #ccc; border-top-right-radius: 5px; background-color: #ddd;}
+QDoubleSpinBox::up-button:hover, QDoubleSpinBox::down-button:hover{background-color: #ccc;}
+QDoubleSpinBox::up-arrow{width: 10px; height: 10px; image: url(./ui/up.png);}
+QDoubleSpinBox::down-arrow{width: 10px; height: 10px; image: url(./ui/down.png);}</string> <!-- 设置背景颜色为#f8f8f8，边框为2px灰色，圆角为5px，字体为12pt，文字颜色为#333；上下按钮样式；悬浮样式；上下箭头图标 -->
+      </property> <!-- 样式表设置结束 -->
+     </widget> <!-- QDoubleSpinBox定义结束 -->
+     <widget class="QLabel" name="label_8"> <!-- 创建一个QLabel，命名为label_8 -->
+      <property name="geometry"> <!-- 设置标签的几何属性 -->
+       <rect> <!-- 定义矩形区域 -->
+        <x>750</x> <!-- 标签左上角x坐标为750 -->
+        <y>30</y> <!-- 标签左上角y坐标为30 -->
+        <width>80</width> <!-- 标签宽度为80像素 -->
+        <height>50</height> <!-- 标签高度为50像素 -->
+       </rect> <!-- 矩形区域定义结束 -->
+      </property> <!-- 几何属性设置结束 -->
+      <property name="styleSheet"> <!-- 设置标签的样式表 -->
+       <string notr="true">QLabel{font: 16pt "Arial"; font-weight: bold; color: #ffffff;}</string> <!-- 设置字体为16pt Arial，加粗，文字颜色为白色 -->
+      </property> <!-- 样式表设置结束 -->
+      <property name="text"> <!-- 设置标签的文本 -->
+       <string>类别</string> <!-- 标签文本为“类别” -->
+      </property> <!-- 文本设置结束 -->
+     </widget> <!-- QLabel定义结束 -->
+     <widget class="QLineEdit" name="class2"> <!-- 创建一个QLineEdit，命名为class2 -->
+      <property name="geometry"> <!-- 设置文本输入框的几何属性 -->
+       <rect> <!-- 定义矩形区域 -->
+        <x>830</x> <!-- 文本输入框左上角x坐标为830 -->
+        <y>30</y> <!-- 文本输入框左上角y坐标为30 -->
+        <width>60</width> <!-- 文本输入框宽度为60像素 -->
+        <height>50</height> <!-- 文本输入框高度为50像素 -->
+       </rect> <!-- 矩形区域定义结束 -->
+      </property> <!-- 几何属性设置结束 -->
+      <property name="styleSheet"> <!-- 设置文本输入框的样式表 -->
+       <string notr="true">QLineEdit{background-color: #f8f8f8; font-size: 12pt; border: 0; padding: 10px; border-radius: 10%;}</string> <!-- 设置背景颜色为#f8f8f8，字体大小为12pt，无边框，内边距为10px，圆角为10% -->
+      </property> <!-- 样式表设置结束 -->
+     </widget> <!-- QLineEdit定义结束 -->
+     <widget class="QLineEdit" name="video_path"> <!-- 创建一个QLineEdit，命名为video_path -->
+      <property name="geometry"> <!-- 设置文本输入框的几何属性 -->
+       <rect> <!-- 定义矩形区域 -->
+        <x>30</x> <!-- 文本输入框左上角x坐标为30 -->
+        <y>580</y> <!-- 文本输入框左上角y坐标为580 -->
+        <width>830</width> <!-- 文本输入框宽度为830像素 -->
+        <height>50</height> <!-- 文本输入框高度为50像素 -->
+       </rect> <!-- 矩形区域定义结束 -->
+      </property> <!-- 几何属性设置结束 -->
+      <property name="styleSheet"> <!-- 设置文本输入框的样式表 -->
+       <string notr="true">QLineEdit{background-color: white; border-radius:5%; border: 0; font-size: 10pt; padding: 10px;}</string> <!-- 设置背景颜色为白色，圆角为5%，无边框，字体大小为10pt，内边距为10px -->
+      </property> <!-- 样式表设置结束 -->
+      <property name="readOnly"> <!-- 设置文本输入框为只读 -->
+       <bool>true</bool> <!-- 文本输入框为只读状态 -->
+      </property> <!-- 只读属性设置结束 -->
+     </widget> <!-- QLineEdit定义结束 -->
+    </widget> <!-- 第二个选项卡定义结束 -->
+   </widget> <!-- QTabWidget定义结束 -->
+   <widget class="QPushButton" name="tab_image"> <!-- 创建一个QPushButton，命名为tab_image -->
+    <property name="geometry"> <!-- 设置按钮的几何属性 -->
+     <rect> <!-- 定义矩形区域 -->
+      <x>30</x> <!-- 按钮左上角x坐标为30 -->
+      <y>300</y> <!-- 按钮左上角y坐标为300 -->
+      <width>200</width> <!-- 按钮宽度为200像素 -->
+      <height>80</height> <!-- 按钮高度为80像素 -->
+     </rect> <!-- 矩形区域定义结束 -->
+    </property> <!-- 几何属性设置结束 -->
+    <property name="styleSheet"> <!-- 设置按钮的样式表 -->
+     <string notr="true">QPushButton{background-color: #557090; border-radius: 5px; color: white; font: 20pt "黑体";}</string> <!-- 设置背景颜色为#557090，圆角为5px，文字颜色为白色，字体为20pt黑体 -->
+    </property> <!-- 样式表设置结束 -->
+    <property name="text"> <!-- 设置按钮的文本 -->
+     <string>图像</string> <!-- 按钮文本为“图像” -->
+    </property> <!-- 文本设置结束 -->
+   </widget> <!-- QPushButton定义结束 -->
+   <widget class="QPushButton" name="tab_video"> <!-- 创建一个QPushButton，命名为tab_video -->
+    <property name="geometry"> <!-- 设置按钮的几何属性 -->
+     <rect> <!-- 定义矩形区域 -->
+      <x>30</x> <!-- 按钮左上角x坐标为30 -->
+      <y>400</y> <!-- 按钮左上角y坐标为400 -->
+      <width>200</width> <!-- 按钮宽度为200像素 -->
+      <height>80</height> <!-- 按钮高度为80像素 -->
+     </rect> <!-- 矩形区域定义结束 -->
+    </property> <!-- 几何属性设置结束 -->
+    <property name="styleSheet"> <!-- 设置按钮的样式表 -->
+     <string notr="true">QPushButton{background-color: #557090; border-radius: 5px; color: white; font: 20pt "黑体";}</string> <!-- 设置背景颜色为#557090，圆角为5px，文字颜色为白色，字体为20pt黑体 -->
+    </property> <!-- 样式表设置结束 -->
+    <property name="text"> <!-- 设置按钮的文本 -->
+     <string>视频</string> <!-- 按钮文本为“视频” -->
+    </property> <!-- 文本设置结束 -->
+   </widget> <!-- QPushButton定义结束 -->
+  </widget> <!-- 中心部件定义结束 -->
+  <widget class="QMenuBar" name="menubar"> <!-- 创建一个QMenuBar，命名为menubar -->
+   <property name="geometry"> <!-- 设置菜单栏的几何属性 -->
+    <rect> <!-- 定义矩形区域 -->
+     <x>0</x> <!-- 菜单栏左上角x坐标为0 -->
+     <y>0</y> <!-- 菜单栏左上角y坐标为0 -->
+     <width>1200</width> <!-- 菜单栏宽度为1200像素 -->
+     <height>26</height> <!-- 菜单栏高度为26像素 -->
+    </rect> <!-- 矩形区域定义结束 -->
+   </property> <!-- 几何属性设置结束 -->
+  </widget> <!-- QMenuBar定义结束 -->
+  <widget class="QStatusBar" name="statusbar"/> <!-- 创建一个QStatusBar，命名为statusbar -->
+  <action name="actionintro"> <!-- 定义一个动作，命名为actionintro -->
+   <property name="text"> <!-- 设置动作的文本 -->
+    <string>介绍</string> <!-- 动作文本为“介绍” -->
+   </property> <!-- 文本设置结束 -->
+  </action> <!-- 动作定义结束 -->
+  <action name="actionversion"> <!-- 定义一个动作，命名为actionversion -->
+   <property name="text"> <!-- 设置动作的文本 -->
+    <string>版本</string> <!-- 动作文本为“版本” -->
+   </property> <!-- 文本设置结束 -->
+  </action> <!-- 动作定义结束 -->
+  <action name="actiondefault"> <!-- 定义一个动作，命名为actiondefault -->
+   <property name="text"> <!-- 设置动作的文本 -->
+    <string>默认</string> <!-- 动作文本为“默认” -->
+   </property> <!-- 文本设置结束 -->
+  </action> <!-- 动作定义结束 -->
+  <action name="actionblack"> <!-- 定义一个动作，命名为actionblack -->
+   <property name="text"> <!-- 设置动作的文本 -->
+    <string>黑色</string> <!-- 动作文本为“黑色” -->
+   </property> <!-- 文本设置结束 -->
+  </action> <!-- 动作定义结束 -->
+  <action name="actionwhite"> <!-- 定义一个动作，命名为actionwhite -->
+   <property name="text"> <!-- 设置动作的文本 -->
+    <string>白色</string> <!-- 动作文本为“白色” -->
+   </property> <!-- 文本设置结束 -->
+  </action> <!-- 动作定义结束 -->
+  <action name="actionblue"> <!-- 定义一个动作，命名为actionblue -->
+   <property name="text"> <!-- 设置动作的文本 -->
+    <string>蓝色</string> <!-- 动作文本为“蓝色” -->
+   </property> <!-- 文本设置结束 -->
+  </action> <!-- 动作定义结束 -->
+  <action name="actionexit"> <!-- 定义一个动作，命名为actionexit -->
+   <property name="text"> <!-- 设置动作的文本 -->
+    <string>退出</string> <!-- 动作文本为“退出” -->
+   </property> <!-- 文本设置结束 -->
+  </action> <!-- 动作定义结束 -->
+ </widget> <!-- 主窗口定义结束 -->
+ <customwidgets> <!-- 定义自定义控件 -->
+  <customwidget> <!-- 定义一个自定义控件 -->
+   <class>QVideoWidget</class> <!-- 自定义控件类名为QVideoWidget -->
+   <extends>QWidget</extends> <!-- 继承自QWidget -->
+   <header>PyQt5.QtMultimediaWidgets</header> <!-- 头文件为PyQt5.QtMultimediaWidgets -->
+  </customwidget> <!-- 自定义控件定义结束 -->
+ </customwidgets> <!-- 自定义控件定义结束 -->
+ <resources/> <!-- 定义资源，当前为空 -->
+ <connections/> <!-- 定义连接，当前为空 -->
+</ui> <!-- UI文件定义结束 -->
