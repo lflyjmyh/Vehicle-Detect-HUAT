@@ -10,7 +10,7 @@
 pip install -r requirements.txt
 pip install -r requirements-torch.txt
 ```
-
+### 谨记：项目文件的保存路径不能出现中文，否则会出现预处理失效
 # 运行
 ## 数据标注
 在解释器终端或命令提示符输入LabelImg
