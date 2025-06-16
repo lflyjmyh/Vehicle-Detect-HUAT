@@ -11,11 +11,11 @@
    </rect> <!-- 矩形区域定义结束 -->
   </property> <!-- 几何属性设置结束 -->
   <property name="windowTitle"> <!-- 设置窗口标题 -->
-   <string>基于YOLOv8的车辆检测--https://github.com/lflyjmyh/Vehicle-Detect-HUAT.git</string> <!-- 窗口标题为“基于YOLOv8的车辆检测” -->
+   <string>基于YOLO11的车辆检测--lflyjmyh</string> <!-- 窗口标题为“基于YOLO的车辆检测” -->
   </property> <!-- 窗口标题设置结束 -->
   <property name="windowIcon"> <!-- 设置窗口图标 -->
    <iconset> <!-- 定义图标集 -->
-    <normaloff>../ui/tesla.png</normaloff>../ui/tesla.png</iconset> <!-- 图标路径为../image/tesla.png -->
+    <normaloff>ui/tesla.png</normaloff>ui/tesla.png</iconset> <!-- 图标路径为../image/tesla.png -->
   </property> <!-- 窗口图标设置结束 -->
   <property name="styleSheet"> <!-- 设置窗口的样式表 -->
    <string notr="true">QMainWindow{background-color: #667799;}</string> <!-- 设置主窗口背景颜色为#667799 -->
@@ -37,7 +37,7 @@
      <string notr="true">QLabel{color: #FFFFFF; font: 18pt "黑体"; font-weight: bold;background-color:auto;}</string> <!-- 设置标签文字颜色为白色，字体为18pt黑体，加粗 -->
     </property> <!-- 样式表设置结束 -->
     <property name="text"> <!-- 设置标签的文本内容 -->
-     <string>基于YOLOv8的车辆检测-lflyjmyh</string> <!-- 标签文本为“基于YOLOv8的车辆检测” -->
+     <string>基于YOLO11的车辆检测</string> <!-- 标签文本为“基于YOLO的车辆检测” -->
     </property> <!-- 文本内容设置结束 -->
    </widget> <!-- QLabel定义结束 -->
    <widget class="QTabWidget" name="tabWidget"> <!-- 创建一个QTabWidget，命名为tabWidget -->

@@ -7,7 +7,7 @@ if __name__ == "__main__":
     model = YOLO("yolov8s.pt")
     model.train(
         # 指定数据集的配置文件路径，data.yaml 包含训练、验证和测试数据的路径及类别信息
-        data="E:/AiProject/dataset/google/data.yaml",
+        data="dataset/google/data.yaml",
         # 设置训练的轮数（epochs），模型将对整个数据集进行 10 次完整训练
         epochs=20,
         # 设置每个批次（batch）的大小，每次训练处理 8 张图像
