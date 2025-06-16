@@ -5,7 +5,21 @@
 而大多数应用程序需要实时分析，实时检测。行业的动态性质倾向于即时结果，而这正是实时目标检测的结果。
 
 # 运行前
-首先，在解释器终端或环境命令提示符中进行依赖库安装
+首先，在解释器终端或环境命令提示符中进行依赖库安装  
+或使用[Anaconda3](https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Windows-x86_64.exe)来配置环境：
+打开Anaconda PowerShell Prompt输入  
+```
+conda create -n py39  python=3.9
+```
+来创建python=3.9的环境解释器  
+```
+conda activate py39
+```
+打开创建的py39环境解释器  
+```
+cd <your project location>
+```
+在Anconda PowerShell Prompt中打开项目地址，然后输入以下代码进行依赖项的安装
 ```
 pip install -r requirements.txt
 pip install -r requirements-torch.txt
