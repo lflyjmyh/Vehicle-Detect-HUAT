@@ -15,7 +15,7 @@
   </property> <!-- 窗口标题设置结束 -->
   <property name="windowIcon"> <!-- 设置窗口图标 -->
    <iconset> <!-- 定义图标集 -->
-    <normaloff>../ui/tesla.png</normaloff>../ui/tesla.png</iconset> <!-- 图标路径为../image/tesla.png -->
+    <normaloff>ui/tesla.png</normaloff>ui/tesla.png</iconset> <!-- 图标路径为../image/tesla.png -->
   </property> <!-- 窗口图标设置结束 -->
   <property name="styleSheet"> <!-- 设置窗口的样式表 -->
    <string notr="true">QMainWindow{background-color: #667799;}</string> <!-- 设置主窗口背景颜色为#667799 -->
