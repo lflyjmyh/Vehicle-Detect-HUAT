@@ -7,7 +7,7 @@
 # 运行前
 首先，在解释器终端或环境命令提示符中进行依赖库安装  
 或使用[Anaconda3](https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Windows-x86_64.exe)来配置环境：
-打开Anaconda PowerShell Prompt输入  
+打开Anaconda Prompt输入  
 ```
 conda create -n py39  python=3.9
 ```
