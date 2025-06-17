@@ -111,3 +111,5 @@ python train_yolo.py
 ```
 model = YOLO('yolo11n.pt') if self.model1.currentText() == '物体检测' else YOLO('yolo11n-seg.pt')
 ```
+# 更多
+[Infinity Nikki](https://x6cn-game-package.papegames.com/xstarter/tikt6im8i04j/InfinityNikki%20Launcher_1.2.0.exe?subCode=ISOd4M)
